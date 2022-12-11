@@ -1,50 +1,140 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+baseURL: "https://hugo-profile.netlify.app"
+languageCode: "en-us"
+title: "Hugo-profile"
+theme: "./.."
+relativeURLs: true
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+googleanalytics: UA-xxxxxx-x
+disqusShortname:
+Paginate: 3
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+taxonomies:
+  tag: "tags"
+  category: "categories"
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+enableEmoji: true
+params:
+  version: 3
 
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  favicon: "/images/fav.png"
+  description: "A high performance hugo theme for personal portfolio and blog."
 
-jobs:
-  # Build job
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+  # Navbar Menus
+  customMenus:
+    - name: "Blog"
+      Url: "/blog"
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+  # home
+  disable_home: false
+  profile_image: "/images/profile.png"
+  name: "Example name"
+  namecolor: ffc107
+  profession: "Profession"
+  github: "https://github.com"
+  linkedin: "https://linkedin.com"
+  twitter: "https://twitter.com/"
+  instagram: "https://instagram.com/"
+  facebook: "https://facebook.com"
+
+  # About
+  disable_about: false
+  descripe_l1_person: "Hi, I'm Profile, a passionate web developer. I tend to make use of modern web technologies to build websites that looks great, feels fantastic, and functions correctly."
+  descripe_l2_person: "This is a example template for about section. You can find my works [here](#projects)"
+  skills:
+    - name: CSS
+      percentage: 90
+    - name: Django
+      percentage: 85
+    - name: Hugo
+      percentage: 80
+    - name: React JS
+      percentage: 70
+
+  # Experience
+  disable_experience: false
+  experience:
+    - company: "Google"
+      # id: "google-developer"   // use this, when you want to change the id(used for navigation)
+      role: "Software developer"
+      startdate: Feb 2021
+      enddate: present
+      featuredpoints:
+        - point: Lead backend developer for a product.
+        - point: Created a frontend design for a product.
+    - company: "Facebook"
+      # id: "facebook-developer" // use this, when you want to change the id(used for navigation)
+      role: "Fullstack developer"
+      startdate: Mar 2020
+      enddate: Dec 2020
+      featuredpoints:
+        - point: Lead backend developer for a product.
+        - point: Created a frontend design for a product.
+    - company: "Amazon"
+      # id: "amazon-developer" // use this, when you want to change the id(used for navigation)
+      role: "Fullstack developer"
+      startdate: Feb 2019
+      enddate: Jan 2020
+      featuredpoints:
+        - point: Lead backend developer for a product.
+        - point: Created a frontend design for a product.
+
+  # Education
+  disable_education: false
+  education:
+    - degree: "B.tech"
+      branch: "Information Technology"
+      university: "Example university"
+      startedyear: "2013"
+      graduation: "2018"
+    - degree: "Degree"
+      branch: "Branch"
+      university: "Example university"
+      startedyear: "year"
+      graduation: "year"
+    - degree: "Degree"
+      branch: "Branch"
+      university: "Example university"
+      startedyear: "year"
+      graduation: "year"
+
+  # Projects
+  disable_projects: false
+  projects:
+    - name: "Example project without details"
+      img: /images/project.jpg
+      githublink: "https://github.com/"
+      featuredlink: "/"
+      description: "Description of project"
+
+  # Achievements
+  disable_achievements: false
+  achievements:
+    - title: Competition winner
+      description: We are developed a product which can help others.
+      img: /images/achiv.jpg
+    - title: Competition winner
+      description: We are developed a product which can help others.
+      img: /images/achiv.jpg
+    - title: Competition winner
+      description: We are developed a product which can help others.
+      img: /images/achiv.jpg
+    - title: Competition winner
+      description: We are developed a product which can help others.
+      img: /images/achiv.jpg
+
+  # Contact
+  disable_contact: false
+  contact_content: My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+  email: "example@mail.com"
+
+  # Footer
+  socialiconfooter: true
+  recentposts: true
+
+  # Blog
+  showdescription: false
+  tweet: true
